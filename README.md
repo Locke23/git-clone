@@ -12,8 +12,8 @@
 - `lit add file1 file2`
   - add file to staging area
 - `lit commit "commit message"`
-  - TODO
+  - create a commit pkg with files at staging area
 - `lit status`
-  - TODO
+  - Displays paths that have differences between the index file and the current HEAD commit
 - `lit log`
-  - TODO
+  - List commits that are reachable by following the parent links from the given commit hash
