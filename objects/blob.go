@@ -44,3 +44,24 @@ func CreateBlob(f *os.File) (*os.File, error) {
 	return file, err
 
 }
+
+func ReadBlob(hash string) ([]byte, error) {
+	path := filepath.Join(".", ".lit", "objects", hash[0:2], hash[2:])
+	file, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+
+	reader, err := gzip.NewReader(file)
+	if err != nil {
+		return nil, err
+	}
+
+	defer reader.Close()
+	content, err := io.ReadAll(reader)
+	if err != nil {
+		return nil, err
+	}
+
+	return content, err
+}
